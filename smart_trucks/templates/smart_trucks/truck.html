@@ -1,0 +1,30 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'smart_trucks/style.css' %}"/>
+
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Ek+Mukta:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+
+<div id = 'title-font'>
+	<h1>{{truck_name}}</h1>
+	<p>This vendor has appeared {{frequency}} times in the past 30 days</p>
+	<p>Appearances:</p>
+
+
+
+{% if event_list %}
+	<div id = 'menu-centered'>
+	    <ul>
+	    {% for event in event_list %}
+	        <li><a href="/smart_trucks/events/{{ event.id }}/">{{ event.name }}</a></li>
+	    {% endfor %}
+	    </ul>
+	</div>
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
+
+
+<div id = 'home_button'>
+	<p><a href = "/smart_trucks/">home</a></p>
+</div>
+
